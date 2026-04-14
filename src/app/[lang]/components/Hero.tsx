@@ -184,16 +184,28 @@ export default function Hero({ dict, lang }: { dict: Dictionary; lang: string })
               <p className="font-sans font-normal text-[14px] text-white leading-[22px] text-center">{f.subtitle}</p>
             </div>
             <div className="flex flex-col gap-[24px] w-full">
-              {[{ label: f.fullName }, { label: f.email }].map((field) => (
-                <div key={field.label} className="flex flex-col gap-[8px]">
-                  <span className="font-sans font-semibold text-[11px] text-[#e6b867] tracking-[1.1px] uppercase">{field.label}</span>
-                  <div className="border-b border-[rgba(216,210,196,0.24)] h-[32px]" />
-                </div>
-              ))}
               <div className="flex flex-col gap-[8px]">
-                <span className="font-sans font-semibold text-[11px] text-[#e6b867] tracking-[1.1px] uppercase">{f.phone}</span>
-                <div className="flex items-center border-b border-[rgba(216,210,196,0.24)] h-[32px]">
-                  <span className="font-sans font-normal text-[14px] text-white">{f.countryCode}</span>
+                <label className="font-sans font-semibold text-[11px] text-[#e6b867] tracking-[1.1px] uppercase">{f.fullName}</label>
+                <input
+                  type="text"
+                  className="bg-transparent border-b border-[rgba(216,210,196,0.24)] h-[32px] font-sans font-normal text-[14px] text-white outline-none focus:border-[rgba(216,210,196,0.6)] transition-colors placeholder:text-[rgba(255,255,255,0.3)] w-full"
+                />
+              </div>
+              <div className="flex flex-col gap-[8px]">
+                <label className="font-sans font-semibold text-[11px] text-[#e6b867] tracking-[1.1px] uppercase">{f.email}</label>
+                <input
+                  type="email"
+                  className="bg-transparent border-b border-[rgba(216,210,196,0.24)] h-[32px] font-sans font-normal text-[14px] text-white outline-none focus:border-[rgba(216,210,196,0.6)] transition-colors placeholder:text-[rgba(255,255,255,0.3)] w-full"
+                />
+              </div>
+              <div className="flex flex-col gap-[8px]">
+                <label className="font-sans font-semibold text-[11px] text-[#e6b867] tracking-[1.1px] uppercase">{f.phone}</label>
+                <div className="flex items-center border-b border-[rgba(216,210,196,0.24)] h-[32px] focus-within:border-[rgba(216,210,196,0.6)] transition-colors">
+                  <span className="font-sans font-normal text-[14px] text-white mr-[6px] shrink-0">{f.countryCode}</span>
+                  <input
+                    type="tel"
+                    className="bg-transparent font-sans font-normal text-[14px] text-white outline-none placeholder:text-[rgba(255,255,255,0.3)] w-full"
+                  />
                 </div>
               </div>
             </div>
