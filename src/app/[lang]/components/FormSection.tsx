@@ -42,10 +42,7 @@ export default function FormSection({ dict }: { dict: Dictionary }) {
           {/* Interested in */}
           <div className="flex flex-col gap-[8px] border-b border-[rgba(66,82,99,0.2)] pb-[9px]">
             <span className="font-sans font-semibold text-[10px] text-[#425263] tracking-[1.5px] uppercase">{t.interested}</span>
-            <div className="flex items-center justify-between">
-              <span className="font-sans font-normal text-[14px] text-[rgba(66,82,99,0.5)]">{t.interestedPlaceholder}</span>
-              <img alt="" src={MOBILE_CHEVRON_ICON} className="size-[16px]" />
-            </div>
+            <input type="text" placeholder={t.interestedPlaceholder} className="font-sans font-normal text-[16px] text-[#425263] opacity-50 bg-transparent outline-none placeholder:opacity-50 placeholder:text-[#425263]" />
           </div>
         </div>
 
@@ -83,10 +80,7 @@ export default function FormSection({ dict }: { dict: Dictionary }) {
               </div>
               <div className="flex flex-col gap-[8px] border-b border-[rgba(66,82,99,0.2)] pb-[9px]">
                 <span className="font-sans font-semibold text-[10px] text-[#425263] tracking-[1.5px] uppercase">{t.interested}</span>
-                <div className="flex items-center justify-between">
-                  <span className="font-sans font-normal text-[14px] text-[rgba(66,82,99,0.5)]">{t.interestedPlaceholder}</span>
-                  <img alt="" src={CHEVRON_ICON} className="size-[16px]" />
-                </div>
+                <input type="text" placeholder={t.interestedPlaceholder} className="font-sans font-normal text-[16px] text-[#425263] opacity-50 bg-transparent outline-none placeholder:opacity-50 placeholder:text-[#425263]" />
               </div>
             </div>
           </div>
