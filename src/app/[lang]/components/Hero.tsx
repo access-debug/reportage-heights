@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { Dictionary } from '../dictionaries'
 import LanguageDropdown from './LanguageDropdown'
+import HeroForm from './HeroForm'
 
 // Desktop assets
 const LOGO = '/icons/logo.svg'
@@ -24,7 +25,6 @@ const MOBILE_DOWNLOAD_ICON_2 = '/icons/mobile-download-icon-2.svg'
 export default function Hero({ dict, lang }: { dict: Dictionary; lang: string }) {
   const t = dict.nav
   const h = dict.hero
-  const f = dict.heroForm
 
   return (
     <section className="relative w-full bg-[#425263]">
@@ -74,11 +74,13 @@ export default function Hero({ dict, lang }: { dict: Dictionary; lang: string })
           {/* Download cards */}
           <div className="flex flex-col gap-[17px] pt-[16px] w-[350px]">
             {[
-              { label: h.brochure, icon: MOBILE_DOWNLOAD_ICON_1 },
-              { label: h.floorPlans, icon: MOBILE_DOWNLOAD_ICON_2 },
+              { label: h.brochure, icon: MOBILE_DOWNLOAD_ICON_1, href: `/brochure-${lang}.pdf` },
+              { label: h.floorPlans, icon: MOBILE_DOWNLOAD_ICON_2, href: '/floor-plans.pdf' },
             ].map((card) => (
-              <div
+              <a
                 key={card.label}
+                href={card.href}
+                download={card.href !== '#' ? true : undefined}
                 className="flex gap-[32px] items-center p-[13px] bg-[rgba(66,82,99,0.7)] border border-[rgba(216,210,196,0.15)] rounded-[12px] w-full cursor-pointer"
               >
                 <div className="bg-[rgba(255,255,255,0.1)] rounded-[8px] size-[80px] flex items-center justify-center shrink-0">
@@ -91,7 +93,7 @@ export default function Hero({ dict, lang }: { dict: Dictionary; lang: string })
                     <span className="font-sans font-semibold text-[13px] text-[#e6b867] tracking-[1.3px] uppercase">{h.downloadPdf}</span>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -122,9 +124,9 @@ export default function Hero({ dict, lang }: { dict: Dictionary; lang: string })
             <Link href="#vision" className="font-sans font-medium text-[14px] text-black tracking-[1.4px] uppercase">{t.vision}</Link>
             <Link href="#experience" className="font-sans font-medium text-[14px] text-black tracking-[1.4px] uppercase">{t.virtualTour}</Link>
             <Link href="#files" className="font-sans font-medium text-[14px] text-black tracking-[1.4px] uppercase">{t.downloads}</Link>
-            <div className="flex items-center bg-[#e6b867] px-[24px] py-[12px] rounded-[4px]">
+            <a href={`tel:${t.phone.replace(/\s/g, '')}`} className="flex items-center bg-[#e6b867] px-[24px] py-[12px] rounded-[4px] hover:bg-[#d4a655] transition-colors">
               <span className="font-sans font-bold text-[14px] text-white">{t.phone}</span>
-            </div>
+            </a>
             <LanguageDropdown
               lang={lang}
               currentLabel={t.lang}
@@ -160,8 +162,8 @@ export default function Hero({ dict, lang }: { dict: Dictionary; lang: string })
               </div>
             </div>
             <div className="flex gap-[20px] items-center w-full">
-              {[{ label: h.brochure, icon: DOWNLOAD_ICON }, { label: h.floorPlans, icon: DOWNLOAD_ICON }].map((card) => (
-                <div key={card.label} className="flex gap-[32px] items-center p-[13px] bg-[rgba(66,82,99,0.7)] border border-[rgba(216,210,196,0.15)] rounded-[12px] w-[339px] cursor-pointer hover:bg-[rgba(66,82,99,0.9)] transition-colors">
+              {[{ label: h.brochure, icon: DOWNLOAD_ICON, href: `/brochure-${lang}.pdf` }, { label: h.floorPlans, icon: DOWNLOAD_ICON, href: '/floor-plans.pdf' }].map((card) => (
+                <a key={card.label} href={card.href} download={card.href !== '#' ? true : undefined} className="flex gap-[32px] items-center p-[13px] bg-[rgba(66,82,99,0.7)] border border-[rgba(216,210,196,0.15)] rounded-[12px] w-[339px] cursor-pointer hover:bg-[rgba(66,82,99,0.9)] transition-colors">
                   <div className="bg-[rgba(255,255,255,0.1)] rounded-[8px] size-[80px] flex items-center justify-center shrink-0">
                     <Image alt="" src={FILE_ICON} width={40} height={40} />
                   </div>
@@ -172,53 +174,13 @@ export default function Hero({ dict, lang }: { dict: Dictionary; lang: string })
                       <span className="font-sans font-semibold text-[13px] text-[#e6b867] tracking-[1.3px] uppercase">{h.downloadPdf}</span>
                     </div>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </div>
 
           {/* Desktop Contact form */}
-          <div className="backdrop-blur-[3px] bg-[rgba(66,82,99,0.88)] border border-[rgba(230,184,103,0.3)] flex flex-col gap-[32px] items-start p-[49px] rounded-[8px] shadow-[2px_2px_6.8px_0px_rgba(66,82,99,0.2)] w-[416px] self-end shrink-0">
-            <div className="flex flex-col gap-[8px] items-center w-full">
-              <h2 className="font-serif text-white text-[30px] leading-[40px] text-center">{f.title}</h2>
-              <p className="font-sans font-normal text-[14px] text-white leading-[22px] text-center">{f.subtitle}</p>
-            </div>
-            <div className="flex flex-col gap-[24px] w-full">
-              <div className="flex flex-col gap-[8px]">
-                <label className="font-sans font-semibold text-[11px] text-[#e6b867] tracking-[1.1px] uppercase">{f.fullName}</label>
-                <input
-                  type="text"
-                  className="bg-transparent border-b border-[rgba(216,210,196,0.24)] h-[32px] font-sans font-normal text-[14px] text-white outline-none focus:border-[rgba(216,210,196,0.6)] transition-colors placeholder:text-[rgba(255,255,255,0.3)] w-full"
-                />
-              </div>
-              <div className="flex flex-col gap-[8px]">
-                <label className="font-sans font-semibold text-[11px] text-[#e6b867] tracking-[1.1px] uppercase">{f.email}</label>
-                <input
-                  type="email"
-                  className="bg-transparent border-b border-[rgba(216,210,196,0.24)] h-[32px] font-sans font-normal text-[14px] text-white outline-none focus:border-[rgba(216,210,196,0.6)] transition-colors placeholder:text-[rgba(255,255,255,0.3)] w-full"
-                />
-              </div>
-              <div className="flex flex-col gap-[8px]">
-                <label className="font-sans font-semibold text-[11px] text-[#e6b867] tracking-[1.1px] uppercase">{f.phone}</label>
-                <div className="flex items-center border-b border-[rgba(216,210,196,0.24)] h-[32px] focus-within:border-[rgba(216,210,196,0.6)] transition-colors">
-                  <span className="font-sans font-normal text-[14px] text-white mr-[6px] shrink-0">{f.countryCode}</span>
-                  <input
-                    type="tel"
-                    className="bg-transparent font-sans font-normal text-[14px] text-white outline-none placeholder:text-[rgba(255,255,255,0.3)] w-full"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col gap-[16px] w-full">
-              <button className="bg-[#e6b867] flex items-center justify-center h-[58px] rounded-[4px] w-full hover:bg-[#d4a655] transition-colors">
-                <span className="font-sans font-bold text-[14px] text-white tracking-[2.1px] uppercase">{f.submit}</span>
-              </button>
-              <div className="flex items-center gap-[8px] justify-center">
-                <span className="font-sans font-normal text-[12px] text-[rgba(255,255,255,0.7)]">{f.privacyText}</span>
-                <span className="font-sans font-normal text-[11px] text-white underline cursor-pointer">{f.privacyLink}</span>
-              </div>
-            </div>
-          </div>
+          <HeroForm dict={dict} lang={lang} />
         </div>
       </div>
     </section>

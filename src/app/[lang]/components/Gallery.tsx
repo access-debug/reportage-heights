@@ -5,7 +5,6 @@ const IMG_1 = '/images/gallery-1.jpg'
 const IMG_2 = '/images/gallery-2.jpg'
 const IMG_3 = '/images/gallery-3.jpg'
 const MOBILE_IMG_1 = '/images/mobile-gallery-1.jpg'
-const ARROW_ICON = '/icons/arrow-icon.svg'
 
 export default function Gallery({ dict }: { dict: Dictionary }) {
   const t = dict.gallery
@@ -49,12 +48,6 @@ export default function Gallery({ dict }: { dict: Dictionary }) {
           </div>
         </div>
 
-        {/* Pagination dots */}
-        <div className="flex gap-[12px] items-center justify-center w-full">
-          <div className="bg-white rounded-full size-[10px]" />
-          <div className="bg-[rgba(255,255,255,0.3)] rounded-full size-[8px]" />
-          <div className="bg-[rgba(255,255,255,0.3)] rounded-full size-[8px]" />
-        </div>
       </div>
 
       {/* ── DESKTOP (>= lg) ── */}
@@ -68,41 +61,27 @@ export default function Gallery({ dict }: { dict: Dictionary }) {
           <p className="font-sans font-normal text-[18px] text-white leading-[26px] text-center">{t.desc}</p>
         </div>
 
-        {/* Cards with navigation */}
-        <div className="flex gap-[40px] items-center w-full max-w-[1280px]">
-          <button className="border-2 border-[rgba(255,255,255,0.6)] flex items-center justify-center rounded-[24px] size-[48px] shrink-0 hover:bg-[rgba(255,255,255,0.1)] transition-colors">
-            <img alt="Previous" src={ARROW_ICON} className="size-[24px] rotate-180" />
-          </button>
-          <div className="flex-1 flex gap-[40px] justify-center">
-            {cards.map((card) => (
-              <div key={card.title} className="bg-white flex flex-col gap-[20px] items-start p-[20px] rounded-[10px] w-[344px] shrink-0">
-                <div className="relative h-[249px] w-full rounded-[8px] overflow-hidden">
-                  <Image
-                    alt={card.title}
-                    src={card.img}
-                    fill
-                    className="object-cover"
-                    sizes="344px"
-                  />
-                </div>
-                <div className="flex flex-col gap-[8px]">
-                  <h3 className="font-serif text-[28px] text-black leading-[34px]">{card.title}</h3>
-                  <p className="font-sans font-normal text-[14px] text-black leading-[23px]">{card.desc}</p>
-                </div>
+        {/* Cards */}
+        <div className="flex gap-[40px] justify-center w-full max-w-[1280px]">
+          {cards.map((card) => (
+            <div key={card.title} className="bg-white flex flex-col gap-[20px] items-start p-[20px] rounded-[10px] w-[344px] shrink-0">
+              <div className="relative h-[249px] w-full rounded-[8px] overflow-hidden">
+                <Image
+                  alt={card.title}
+                  src={card.img}
+                  fill
+                  className="object-cover"
+                  sizes="344px"
+                />
               </div>
-            ))}
-          </div>
-          <button className="border-2 border-[rgba(255,255,255,0.6)] flex items-center justify-center rounded-[24px] size-[48px] shrink-0 hover:bg-[rgba(255,255,255,0.1)] transition-colors">
-            <img alt="Next" src={ARROW_ICON} className="size-[24px]" />
-          </button>
+              <div className="flex flex-col gap-[8px]">
+                <h3 className="font-serif text-[28px] text-black leading-[34px]">{card.title}</h3>
+                <p className="font-sans font-normal text-[14px] text-black leading-[23px]">{card.desc}</p>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* Pagination dots */}
-        <div className="flex gap-[12px] items-center justify-center">
-          <div className="bg-white rounded-full size-[10px]" />
-          <div className="bg-[rgba(255,255,255,0.3)] rounded-full size-[8px]" />
-          <div className="bg-[rgba(255,255,255,0.3)] rounded-full size-[8px]" />
-        </div>
       </div>
     </section>
   )

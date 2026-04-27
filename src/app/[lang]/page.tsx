@@ -30,9 +30,9 @@ export default async function Page({
       <Amenities dict={dict} />
       <Gallery dict={dict} />
       <MapSection dict={dict} />
-      <Files dict={dict} />
+      <Files dict={dict} lang={lang} />
       <About dict={dict} />
-      <FormSection dict={dict} />
+      <FormSection dict={dict} lang={lang} />
       <Footer dict={dict} lang={lang} />
     </main>
   )

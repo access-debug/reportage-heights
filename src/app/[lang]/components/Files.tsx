@@ -9,7 +9,7 @@ const DOWNLOAD_ICON_1 = '/icons/files-download-1.svg'
 const DOWNLOAD_ICON_2 = '/icons/files-download-2.svg'
 const MOBILE_DOWNLOAD_ICON = '/icons/mobile-files-download.svg'
 
-export default function Files({ dict }: { dict: Dictionary }) {
+export default function Files({ dict, lang }: { dict: Dictionary; lang: string }) {
   const t = dict.files
 
   return (
@@ -42,11 +42,13 @@ export default function Files({ dict }: { dict: Dictionary }) {
         {/* Download cards stacked */}
         <div className="relative flex flex-col gap-[24px]">
           {[
-            { title: t.brochure, icon: MOBILE_DOWNLOAD_ICON },
-            { title: t.floorPlans, icon: MOBILE_DOWNLOAD_ICON },
+            { title: t.brochure, icon: MOBILE_DOWNLOAD_ICON, href: `/brochure-${lang}.pdf` },
+            { title: t.floorPlans, icon: MOBILE_DOWNLOAD_ICON, href: '/floor-plans.pdf' },
           ].map((doc) => (
-            <div
+            <a
               key={doc.title}
+              href={doc.href}
+              download={doc.href !== '#' ? true : undefined}
               className="flex gap-[32px] items-center p-[41px] bg-[rgba(66,82,99,0.7)] border border-[rgba(216,210,196,0.15)] rounded-[12px] cursor-pointer"
             >
               <div className="bg-[rgba(255,255,255,0.1)] rounded-[8px] size-[80px] flex items-center justify-center shrink-0">
@@ -59,7 +61,7 @@ export default function Files({ dict }: { dict: Dictionary }) {
                   <span className="font-sans font-semibold text-[12px] text-[#e6b867] tracking-[1.3px] uppercase">{t.download}</span>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
@@ -89,11 +91,13 @@ export default function Files({ dict }: { dict: Dictionary }) {
         {/* Download cards */}
         <div className="relative flex gap-[40px] items-start justify-center w-full max-w-[1280px] mx-auto mt-[40px]">
           {[
-            { title: t.brochure, icon: DOWNLOAD_ICON_1 },
-            { title: t.floorPlans, icon: DOWNLOAD_ICON_2 },
+            { title: t.brochure, icon: DOWNLOAD_ICON_1, href: `/brochure-${lang}.pdf` },
+            { title: t.floorPlans, icon: DOWNLOAD_ICON_2, href: '/floor-plans.pdf' },
           ].map((doc) => (
-            <div
+            <a
               key={doc.title}
+              href={doc.href}
+              download={doc.href !== '#' ? true : undefined}
               className="flex gap-[32px] items-center p-[41px] bg-[rgba(66,82,99,0.7)] border border-[rgba(216,210,196,0.15)] rounded-[12px] w-[450px] cursor-pointer hover:bg-[rgba(66,82,99,0.9)] transition-colors"
             >
               <div className="bg-[rgba(255,255,255,0.1)] rounded-[8px] size-[80px] flex items-center justify-center shrink-0">
@@ -106,7 +110,7 @@ export default function Files({ dict }: { dict: Dictionary }) {
                   <span className="font-sans font-semibold text-[13px] text-[#e6b867] tracking-[1.3px] uppercase">{t.download}</span>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

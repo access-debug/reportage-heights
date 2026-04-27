@@ -66,22 +66,15 @@ export default function Amenities({ dict }: { dict: Dictionary }) {
           </div>
         </div>
 
-        {/* Single image + dots */}
-        <div className="flex flex-col gap-[24px] items-center w-full">
-          <div className="relative h-[282px] w-full rounded-[8px] overflow-hidden">
-            <Image
-              alt=""
-              src={MOBILE_IMG}
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw"
-            />
-          </div>
-          <div className="flex gap-[12px] items-center justify-center">
-            <div className="bg-[#425263] rounded-full size-[10px]" />
-            <div className="bg-[#dbdbdb] rounded-full size-[8px]" />
-            <div className="bg-[#dbdbdb] rounded-full size-[8px]" />
-          </div>
+        {/* Single image */}
+        <div className="relative h-[282px] w-full rounded-[8px] overflow-hidden">
+          <Image
+            alt=""
+            src={MOBILE_IMG}
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw"
+          />
         </div>
       </div>
 
@@ -122,11 +115,6 @@ export default function Amenities({ dict }: { dict: Dictionary }) {
             <div className="flex-1 relative rounded-[8px] overflow-hidden">
               <Image alt="" src={IMG_2} fill className="object-cover" sizes="(min-width: 1024px) 50vw" />
             </div>
-          </div>
-          <div className="flex gap-[12px] items-center justify-center">
-            <div className="bg-[#425263] rounded-full size-[10px]" />
-            <div className="bg-[#dbdbdb] rounded-full size-[8px]" />
-            <div className="bg-[#dbdbdb] rounded-full size-[8px]" />
           </div>
         </div>
       </div>
