@@ -41,6 +41,7 @@ export default function Footer({ dict, lang }: { dict: Dictionary; lang: string 
             <div className="flex flex-col">
               <a href="https://www.instagram.com/reportageazerbaijan/" target="_blank" rel="noopener noreferrer" className="font-sans font-light text-[16px] text-white leading-[26px] hover:text-[#e6b867] transition-colors">{t.instagram}</a>
               <a href="https://www.linkedin.com/company/reportageazerbaijan" target="_blank" rel="noopener noreferrer" className="font-sans font-light text-[16px] text-white leading-[26px] hover:text-[#e6b867] transition-colors">{t.linkedin}</a>
+              <a href="https://www.facebook.com/Reportage.Azerbaijan" target="_blank" rel="noopener noreferrer" className="font-sans font-light text-[16px] text-white leading-[26px] hover:text-[#e6b867] transition-colors">{t.facebook}</a>
             </div>
           </div>
         </div>
@@ -79,6 +80,7 @@ export default function Footer({ dict, lang }: { dict: Dictionary; lang: string 
               <div className="flex flex-col gap-[12px]">
                 <a href="https://www.instagram.com/reportageazerbaijan/" target="_blank" rel="noopener noreferrer" className="font-sans font-normal text-[14px] text-[#d8d2c4] leading-[18px] hover:text-white transition-colors">{t.instagram}</a>
                 <a href="https://www.linkedin.com/company/reportageazerbaijan" target="_blank" rel="noopener noreferrer" className="font-sans font-normal text-[14px] text-[#d8d2c4] leading-[18px] hover:text-white transition-colors">{t.linkedin}</a>
+                <a href="https://www.facebook.com/Reportage.Azerbaijan" target="_blank" rel="noopener noreferrer" className="font-sans font-normal text-[14px] text-[#d8d2c4] leading-[18px] hover:text-white transition-colors">{t.facebook}</a>
               </div>
             </div>
           </div>
