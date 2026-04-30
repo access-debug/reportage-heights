@@ -11,6 +11,10 @@
   --color-sisal: #d8d2c4;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --font-montserrat: 'Montserrat', sans-serif;
   --font-baskerville: 'Libre Baskerville', serif;

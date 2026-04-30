@@ -27,7 +27,7 @@ export default function Hero({ dict, lang }: { dict: Dictionary; lang: string })
   const h = dict.hero
 
   return (
-    <section className="relative w-full bg-[#425263]">
+    <section id="hero" className="relative w-full bg-[#425263]">
       {/* ── MOBILE HERO (< lg) ── */}
       <div className="lg:hidden relative h-[844px] flex flex-col overflow-hidden">
         {/* Background */}
@@ -45,7 +45,7 @@ export default function Hero({ dict, lang }: { dict: Dictionary; lang: string })
 
         {/* Mobile Navbar */}
         <div className="relative z-50 flex items-center justify-between px-[20px] py-[40px] h-[105px]">
-          <Image alt="Reportage Heights" src={MOBILE_LOGO} width={132} height={26} className="object-contain" priority />
+          <Link href="#hero"><Image alt="Reportage Heights" src={MOBILE_LOGO} width={132} height={26} className="object-contain" priority /></Link>
           <LanguageDropdown
             lang={lang}
             currentLabel={t.lang}
@@ -119,7 +119,7 @@ export default function Hero({ dict, lang }: { dict: Dictionary; lang: string })
 
         {/* Desktop Navbar */}
         <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between bg-white px-[80px] py-[32px] w-full shadow-sm">
-          <Image alt="Reportage Heights" src={LOGO} width={240} height={47} className="object-contain" priority />
+          <Link href="#hero"><Image alt="Reportage Heights" src={LOGO} width={240} height={47} className="object-contain" priority /></Link>
           <div className="flex items-center gap-[40px]">
             <Link href="#vision" className="font-sans font-medium text-[14px] text-black tracking-[1.4px] uppercase">{t.vision}</Link>
             <Link href="#experience" className="font-sans font-medium text-[14px] text-black tracking-[1.4px] uppercase">{t.virtualTour}</Link>
