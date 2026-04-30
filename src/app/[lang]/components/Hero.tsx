@@ -118,7 +118,7 @@ export default function Hero({ dict, lang }: { dict: Dictionary; lang: string })
         </div>
 
         {/* Desktop Navbar */}
-        <nav className="relative z-50 flex items-center justify-between bg-white px-[80px] py-[32px] w-full">
+        <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between bg-white px-[80px] py-[32px] w-full shadow-sm">
           <Image alt="Reportage Heights" src={LOGO} width={240} height={47} className="object-contain" priority />
           <div className="flex items-center gap-[40px]">
             <Link href="#vision" className="font-sans font-medium text-[14px] text-black tracking-[1.4px] uppercase">{t.vision}</Link>
@@ -138,7 +138,7 @@ export default function Hero({ dict, lang }: { dict: Dictionary; lang: string })
         </nav>
 
         {/* Desktop Hero Content */}
-        <div className="relative z-10 flex gap-[58px] items-end justify-center pb-[80px] px-[80px] min-h-[823px] bg-[rgba(39,39,39,0.46)]">
+        <div className="relative z-10 flex gap-[58px] items-end justify-center pb-[80px] px-[80px] min-h-[823px] bg-[rgba(39,39,39,0.46)] pt-[111px]">
           <div className="flex flex-col items-start w-[806px]">
             <div className="flex flex-col gap-[16px] items-start justify-center max-w-[650px] w-[650px] py-[80px] pt-[120px]">
               <div className="backdrop-blur-[10px] bg-[rgba(255,255,255,0.1)] flex items-center justify-center px-[16px] py-[10px] rounded-[8px]">
