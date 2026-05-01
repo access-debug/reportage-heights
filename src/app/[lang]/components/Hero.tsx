@@ -44,15 +44,24 @@ export default function Hero({ dict, lang }: { dict: Dictionary; lang: string })
         </div>
 
         {/* Mobile Navbar */}
-        <div className="relative z-50 flex items-center justify-between px-[20px] py-[40px] h-[105px]">
+        <div className="fixed top-0 left-0 right-0 z-50 lg:hidden flex items-center justify-between px-[20px] h-[78px]">
           <Link href="#hero"><Image alt="Reportage Heights" src={MOBILE_LOGO} width={132} height={26} className="object-contain" priority /></Link>
-          <LanguageDropdown
-            lang={lang}
-            currentLabel={t.lang}
-            variant="mobile"
-            langIcon={MOBILE_LANG_ICON}
-            chevronIcon={MOBILE_LANG_CHEVRON}
-          />
+          <div className="flex items-center gap-[10px]">
+            <a
+              href={`tel:${t.phone.replace(/\s/g, '')}`}
+              className="backdrop-blur-[10px] bg-[rgba(255,255,255,0.1)] flex items-center gap-[7px] px-[12px] py-[8px] rounded-[8px]"
+            >
+              <Image alt="" src={PHONE_ICON} width={13} height={13} />
+              <span className="font-sans font-normal text-[11px] text-white leading-[15px]">{t.phone}</span>
+            </a>
+            <LanguageDropdown
+              lang={lang}
+              currentLabel={t.lang}
+              variant="mobile"
+              langIcon={MOBILE_LANG_ICON}
+              chevronIcon={MOBILE_LANG_CHEVRON}
+            />
+          </div>
         </div>
 
         {/* Mobile Hero Content */}
