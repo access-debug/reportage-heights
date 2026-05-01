@@ -58,8 +58,14 @@ export default async function LangLayout({
         {/* Preload LCP hero images — desktop gets full bg, mobile gets mobile bg */}
         <link rel="preload" as="image" href="/images/hero-bg.jpg" media="(min-width: 1024px)" />
         <link rel="preload" as="image" href="/images/mobile-hero-bg.jpg" media="(max-width: 1023px)" />
+        {/* Google Tag Manager */}
+        <script dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KLQX7B7Z');` }} />
       </head>
-      <body className="min-h-screen antialiased">{children}</body>
+      <body className="min-h-screen antialiased">
+        {/* Google Tag Manager (noscript) */}
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLQX7B7Z" height="0" width="0" style={{ display: 'none', visibility: 'hidden' }} /></noscript>
+        {children}
+      </body>
     </html>
   )
 }
