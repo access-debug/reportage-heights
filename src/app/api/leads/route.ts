@@ -36,6 +36,20 @@ const BOARDS = {
   },
 }
 
+async function getCountryFromIp(ip: string): Promise<string> {
+  try {
+    // Skip geolocation for local/private IPs
+    if (!ip || ip === '127.0.0.1' || ip === '::1' || ip.startsWith('192.168.') || ip.startsWith('10.')) {
+      return ''
+    }
+    const res = await fetch(`http://ip-api.com/json/${ip}?fields=countryCode`, { cache: 'no-store' })
+    const data = await res.json()
+    return data.countryCode ?? ''
+  } catch {
+    return ''
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
@@ -45,7 +59,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Name and phone are required' }, { status: 400 })
     }
 
-    const board = lang === 'ru' ? BOARDS.ru : BOARDS.aze
+    // Detect country from IP — takes priority over language
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? ''
+    const country = await getCountryFromIp(ip)
+    const isRussia = country === 'RU'
+
+    const board = isRussia ? BOARDS.ru : BOARDS.aze
     const c = board.cols
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
