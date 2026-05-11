@@ -27,6 +27,7 @@
     "phone": "Telefon Nömrəsi",
     "countryCode": "+994",
     "submit": "Sorğunuzu Göndərin",
+    "success": "Uğurla göndərildi",
     "privacyText": "Klikləməklə",
     "privacyLink": "Məxfilik siyasətinə razılıq verirsiniz."
   },
@@ -138,7 +139,8 @@
     "phonePlaceholder": "Telefon nömrəsi",
     "interested": "MARAAQLİ*",
     "interestedPlaceholder": "Sorğunuzu qeyd edin",
-    "submit": "Sorğunuzu Göndərin"
+    "submit": "Sorğunuzu Göndərin",
+    "success": "Uğurla göndərildi"
   },
   "footer": {
     "salesGallery": "Satış Mərkəzi",

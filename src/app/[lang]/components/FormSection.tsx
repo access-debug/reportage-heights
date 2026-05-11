@@ -78,7 +78,7 @@ export default function FormSection({ dict, lang }: { dict: Dictionary; lang: st
 
           {status === 'success' ? (
             <div className="bg-[rgba(66,82,99,0.08)] border border-[#425263] rounded-[4px] h-[56px] flex items-center justify-center">
-              <span className="font-sans font-semibold text-[12px] text-[#425263] tracking-[1px]">✓ Submitted successfully</span>
+              <span className="font-sans font-semibold text-[12px] text-[#425263] tracking-[1px]">✓ {t.success}</span>
             </div>
           ) : (
             <button type="submit" disabled={status === 'loading'} className="bg-[#e6b867] flex items-center justify-center h-[56px] rounded-[4px] w-full hover:bg-[#d4a655] transition-colors disabled:opacity-60">
@@ -129,7 +129,7 @@ export default function FormSection({ dict, lang }: { dict: Dictionary; lang: st
 
             {status === 'success' ? (
               <div className="bg-[rgba(66,82,99,0.08)] border border-[#425263] rounded-[4px] h-[68px] flex items-center justify-center w-full">
-                <span className="font-sans font-semibold text-[16px] text-[#425263] tracking-[1px]">✓ Submitted successfully</span>
+                <span className="font-sans font-semibold text-[16px] text-[#425263] tracking-[1px]">✓ {t.success}</span>
               </div>
             ) : (
               <button type="submit" disabled={status === 'loading'} className="bg-[#e6b867] flex items-center justify-center h-[68px] rounded-[4px] w-full hover:bg-[#d4a655] transition-colors disabled:opacity-60">

@@ -89,7 +89,7 @@ export default function HeroForm({ dict, lang }: Props) {
       <div className="flex flex-col gap-[16px] w-full">
         {status === 'success' ? (
           <div className="bg-[rgba(230,184,103,0.2)] border border-[#e6b867] rounded-[4px] h-[58px] flex items-center justify-center">
-            <span className="font-sans font-bold text-[14px] text-[#e6b867] tracking-[1px]">✓ Submitted successfully</span>
+            <span className="font-sans font-bold text-[14px] text-[#e6b867] tracking-[1px]">✓ {f.success}</span>
           </div>
         ) : (
           <button

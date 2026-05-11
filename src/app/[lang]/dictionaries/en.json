@@ -27,6 +27,7 @@
     "phone": "Phone Number",
     "countryCode": "+994",
     "submit": "Register Interest",
+    "success": "Submitted successfully",
     "privacyText": "By clicking, you agree to our.",
     "privacyLink": "Privacy Policy"
   },
@@ -138,7 +139,8 @@
     "phonePlaceholder": "Phone Number*",
     "interested": "INTERESTED IN*",
     "interestedPlaceholder": "Text here",
-    "submit": "Register Interest"
+    "submit": "Register Interest",
+    "success": "Submitted successfully"
   },
   "footer": {
     "salesGallery": "Sales Gallery",
